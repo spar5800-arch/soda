@@ -6,16 +6,16 @@
   <title>소다 시그 이미지 검색기</title>
   <style>
     :root {
-      /* 하늘색 테마 변수 */
-      --bg1: #f0f9ff;
-      --bg2: #e0f2fe;
-      --card: #ffffff;
-      --line: #bae6fd;
-      --text: #0c4a6e;
-      --muted: #7dd3fc;
-      --accent: #0284c7; /* 메인 하늘색 */
-      --accent2: #38bdf8;
-      --shadow: 0 14px 40px rgba(2, 132, 199, 0.12);
+      /* 러블리 레트로 핑크 테마 변수 */
+      --bg1: #fff0f5; /* 아주 연한 딸기우유빛 배경 */
+      --bg2: #ffe4ea; /* 호버 및 서브 핑크 배경 */
+      --card: #ffffff; /* 순백색 카드 배경 */
+      --line: #ffc2d1; /* 부드러운 핑크 구분선 */
+      --text: #593c43; /* 부드러운 다크 코코아 (글자색) */
+      --muted: #a98f95; /* 보조 글자색 */
+      --accent: #ff6b95; /* 핫핑크 하트 포인트 */
+      --accent2: #ff9cbd; /* 보조 핑크 포인트 */
+      --shadow: 0 14px 40px rgba(255, 107, 149, 0.15); /* 은은한 핑크빛 그림자 */
       --radius: 18px;
     }
 
@@ -57,7 +57,7 @@
       display: block;
       border-radius: 50%;
       border: 4px solid #fff;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 12px rgba(255, 107, 149, 0.25);
       object-fit: cover;
     }
 
@@ -86,18 +86,22 @@
       width: 100%;
       padding: 12px 12px 12px 40px;
       border-radius: 12px;
-      border: 1px solid #e0e0e0;
+      border: 1px solid #ffe0e6;
       outline: none;
       font-size: 14px;
       color: var(--text);
-      background-color: #f9f9f9;
+      background-color: #fffafb;
       transition: all 0.2s ease;
     }
 
     .search input:focus {
       border-color: var(--accent2);
       background-color: #fff;
-      box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.15);
+      box-shadow: 0 0 0 3px rgba(255, 156, 189, 0.2);
+    }
+
+    .search input::placeholder {
+      color: #cca8b0;
     }
 
     .search svg {
@@ -107,7 +111,7 @@
       transform: translateY(-50%);
       width: 18px;
       height: 18px;
-      color: #b0b0b0;
+      color: #cca8b0;
       pointer-events: none;
     }
 
@@ -121,8 +125,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      color: var(--text);
-      opacity: 0.8;
+      color: var(--muted);
       font-size: 13px;
       padding-top: 10px;
     }
@@ -148,12 +151,12 @@
       position: sticky;
       top: 0;
       z-index: 2;
-      background-color: #fcfcfc;
-      color: var(--text);
+      background-color: #fff5f7;
+      color: var(--accent);
       text-align: left;
       padding: 12px 15px;
       border-bottom: 2px solid var(--line);
-      font-weight: 600;
+      font-weight: 700;
     }
 
     tbody td {
@@ -168,7 +171,7 @@
     }
 
     tbody tr:nth-child(even) {
-      background-color: rgba(224, 242, 254, 0.3);
+      background-color: #fffafb;
     }
 
     tbody tr:hover td {
@@ -178,7 +181,7 @@
     td.num {
       width: 100px;
       color: var(--accent);
-      font-weight: 700;
+      font-weight: 800;
       font-size: 16px;
       font-variant-numeric: tabular-nums;
     }
@@ -192,7 +195,7 @@
     }
 
     .no-img {
-      color: #aaa;
+      color: #cca8b0;
       font-style: italic;
       font-size: 12px;
     }
@@ -200,11 +203,11 @@
     .footer {
       padding: 15px 30px;
       border-top: 1px solid var(--line);
-      background-color: #fcfcfc;
+      background-color: #fff5f7;
       color: var(--accent);
       font-size: 12px;
       text-align: center;
-      font-weight: 500;
+      font-weight: 600;
     }
 
     .badge {
@@ -212,15 +215,15 @@
       align-items: center;
       padding: 5px 10px;
       border-radius: 20px;
-      background-color: var(--bg2);
+      background-color: #ffe0e6;
       color: var(--accent);
       font-size: 12px;
-      font-weight: 600;
+      font-weight: 700;
     }
 
     .table-scroll::-webkit-scrollbar { width: 6px; }
     .table-scroll::-webkit-scrollbar-thumb {
-      background: var(--muted);
+      background: var(--line);
       border-radius: 3px;
     }
     .table-scroll::-webkit-scrollbar-track { background: transparent; }
@@ -242,7 +245,7 @@
           <img src="https://profile.img.sooplive.co.kr/LOGO/zb/zbxlzzz/zbxlzzz.jpg" alt="소다 프로필" />
         </div>
         <div class="header-text">
-          <h1>소다<span>♡</span> 시그 이미지 검색기</h1>
+          <h1>소다<span>♥</span> 시그 검색기</h1>
         </div>
       </div>
 
@@ -252,14 +255,14 @@
             <path d="M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15Z" stroke="currentColor" stroke-width="1.8"/>
             <path d="M16.2 16.2 21 21" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
           </svg>
-          <input type="text" id="searchInput" placeholder="개수 검색..." autocomplete="off" />
+          <input type="text" id="searchInput" placeholder="두산 개수 검색..." autocomplete="off" />
         </div>
       </div>
 
       <div class="content">
         <div class="meta">
           <span id="countText" class="badge">총 0개의 목록</span>
-          <span>Tip: 숫자로 검색할 수 있습니다.</span>
+          <span>Tip: 숫자로 빠르게 검색하세요!</span>
         </div>
 
         <div class="table-wrap">
@@ -295,7 +298,7 @@
                 <tr><td class="num">1069</td><td class="img-cell"><img src="https://uyqziawjqlrqjkwsjnji.supabase.co/storage/v1/object/public/Sig/10069.png" loading="lazy"></td></tr>
                 <tr><td class="num">1072</td><td class="img-cell"><img src="https://uyqziawjqlrqjkwsjnji.supabase.co/storage/v1/object/public/Sig/10072.png" loading="lazy"></td></tr>
                 <tr><td class="num">1073</td><td class="img-cell"><img src="https://uyqziawjqlrqjkwsjnji.supabase.co/storage/v1/object/public/Sig//10073.gif" loading="lazy"></td></tr>
-                <tr><td class="num">1074</td><td class="img-cell"><img src="https://uyqziawjqlrqjkwsjnji.supabase.co/storage/v1/object/public/Sig//10074.gif" loading="lazy"></td></tr>
+                <tr><td class="num">1074</td><td class="img-cell"><img src="https://media.yxl.kr/signature/image/10074.gif" loading="lazy"></td></tr>
                 <tr><td class="num">1085</td><td class="img-cell"><img src="https://uyqziawjqlrqjkwsjnji.supabase.co/storage/v1/object/public/Sig//10085.gif" loading="lazy"></td></tr>
                 <tr><td class="num">1088</td><td class="img-cell"><img src="https://uyqziawjqlrqjkwsjnji.supabase.co/storage/v1/object/public/Sig/10088.gif" loading="lazy"></td></tr>
                 <tr><td class="num">1089</td><td class="img-cell"><img src="https://uyqziawjqlrqjkwsjnji.supabase.co/storage/v1/object/public/Sig/10892.gif" loading="lazy"></td></tr>
@@ -335,7 +338,7 @@
       </div>
 
       <div class="footer">
-        <span>© 소다♡ 💎 Always Lovely</span>
+        <span>© I am SODA 🎀 Welcome to my channel!</span>
       </div>
     </div>
   </div>
